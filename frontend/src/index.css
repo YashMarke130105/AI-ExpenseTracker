@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  /* shadcn-default look: single neutral sans stack, no serif branding */
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", monospace;
+
+  /* Neutral surface/ink palette (shadcn "neutral" base) */
+  --color-paper: #ffffff;
+  --color-surface: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #737373;
+  --color-line: #e5e5e5;
+
+  /* Primary accent: blue, paired with purple for the brand gradient */
+  --color-ledger: #2563eb;
+  --color-ledger-soft: #eff6ff;
+  --color-purple: #9333ea;
+  --color-purple-soft: #faf5ff;
+
+  /* Destructive / warning */
+  --color-rust: #dc2626;
+  --color-rust-soft: #fef2f2;
+  --color-gold: #d97706;
+  --color-gold-soft: #fffbeb;
+  --color-emerald: #16a34a;
+  --color-emerald-soft: #f0fdf4;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: #f8fafc;
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-rule {
+  border-top: 1px solid var(--color-line);
+}
+
+::selection {
+  background-color: var(--color-ledger-soft);
+}
+
+/* Blue -> purple brand gradient, matching the target app's gradient-title */
+.gradient {
+  background-image: linear-gradient(to bottom right, #2563eb, #9333ea);
+}
+
+.gradient-title {
+  background-image: linear-gradient(to bottom right, #2563eb, #9333ea);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@keyframes spin-loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-loader {
+  animation: spin-loader 0.7s linear infinite;
+}
+
+@keyframes bar-loader-sweep {
+  0% {
+    left: -33%;
+  }
+  50% {
+    left: 66%;
+  }
+  100% {
+    left: -33%;
+  }
+}
+
+.animate-bar-loader {
+  animation: bar-loader-sweep 1.2s ease-in-out infinite;
+}
